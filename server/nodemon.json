@@ -1,0 +1,14 @@
+{
+  "watch": ["./"],
+  "ignore": [
+    "node_modules/**/node_modules",
+    ".git",
+    "dist",
+    "*.test.js",
+    "*.log",
+    "*.log.tmp"
+  ],
+  "ext": "js,json",
+  "verbose": true,
+  "restartable": "rs"
+}

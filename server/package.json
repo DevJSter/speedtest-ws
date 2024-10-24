@@ -1,20 +1,20 @@
 {
-  "name": "wifi-speed-test",
+  "name": "speed-test-server",
   "version": "1.0.0",
-  "description": "WiFi speed test implementation",
+  "description": "Internet speed test server",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon --config nodemon.json index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
+    "express": "^4.17.1",
     "cors": "^2.8.5",
-    "express": "^4.21.1",
-    "node-fetch": "^3.3.2",
-    "ws": "^8.18.0"
+    "node-fetch": "^3.3.0",
+    "ws": "^8.2.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }

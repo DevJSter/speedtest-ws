@@ -14,7 +14,6 @@ const SpeedGauge = ({ value, max = 100, label, isLoading, colorStart, colorEnd }
           </linearGradient>
         </defs>
         
-        {/* Background circle with shimmer animation */}
         <circle
           cx="50"
           cy="50"
@@ -28,7 +27,6 @@ const SpeedGauge = ({ value, max = 100, label, isLoading, colorStart, colorEnd }
           className="animate-pulse"
         />
         
-        {/* Foreground circle with gradient */}
         <circle
           cx="50"
           cy="50"
@@ -45,8 +43,7 @@ const SpeedGauge = ({ value, max = 100, label, isLoading, colorStart, colorEnd }
           `}
         />
         
-        {/* Animated value display */}
-        <g className={isLoading ? "animate-pulse" : "animate-fadeIn"}>
+        <g className={isLoading ? "animate-pulse" : "animate-fade-in"}>
           <text 
             x="50" 
             y="45" 
@@ -67,7 +64,7 @@ const SpeedGauge = ({ value, max = 100, label, isLoading, colorStart, colorEnd }
           </text>
         </g>
       </svg>
-      <div className="text-center mt-2 font-medium bg-clip-text text-transparent bg-gradient-to-r from-[#3b82f6] to-[#8b5cf6]">
+      <div className="text-center mt-2 font-medium bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
         {label}
       </div>
     </div>
@@ -125,7 +122,6 @@ export default function SpeedTest() {
       ${mounted ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500
     `}>
       <div className="max-w-4xl mx-auto">
-        {/* Header with animated gradient */}
         <div className="text-center mb-12 transform hover:scale-105 transition-transform duration-300">
           <div className="flex items-center justify-center gap-2 mb-4">
             <Wifi className="w-8 h-8 text-blue-400 animate-pulse" />
@@ -138,9 +134,7 @@ export default function SpeedTest() {
           </p>
         </div>
 
-        {/* Main Card with glass effect */}
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-8 mb-8 transform hover:scale-[1.01] transition-all duration-300">
-          {/* Test Button */}
           <div className="flex justify-center mb-8">
             <button
               onClick={startTest}
@@ -168,7 +162,6 @@ export default function SpeedTest() {
             </button>
           </div>
 
-          {/* Status Message */}
           {status && (
             <div className="text-center mb-8 text-blue-300 flex items-center justify-center gap-2">
               <RefreshCw className="w-5 h-5 animate-spin" />
@@ -176,14 +169,12 @@ export default function SpeedTest() {
             </div>
           )}
 
-          {/* Error Message */}
           {error && (
-            <div className="mb-8 text-red-400 bg-red-900/20 border border-red-500/20 p-4 rounded-xl text-center animate-fadeIn">
+            <div className="mb-8 text-red-400 bg-red-900/20 border border-red-500/20 p-4 rounded-xl text-center animate-fade-in">
               {error}
             </div>
           )}
 
-          {/* Gauges */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-12 mb-8">
             <SpeedGauge
               value={results?.download?.speed || 0}
@@ -203,9 +194,8 @@ export default function SpeedTest() {
             />
           </div>
 
-          {/* Detailed Results */}
           {results && (
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white/5 backdrop-blur-lg rounded-xl p-6 animate-fadeIn">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 bg-white/5 backdrop-blur-lg rounded-xl p-6 animate-fade-in">
               <div className="space-y-2">
                 <div className="flex items-center gap-2 text-blue-400">
                   <Download className="w-5 h-5" />
@@ -226,7 +216,6 @@ export default function SpeedTest() {
           )}
         </div>
 
-        {/* History Section */}
         {testHistory.length > 0 && (
           <div className="bg-white/10 backdrop-blur-lg rounded-2xl shadow-2xl p-8 transform hover:scale-[1.01] transition-all duration-300">
             <div className="flex items-center gap-2 mb-6">
@@ -237,11 +226,9 @@ export default function SpeedTest() {
               {testHistory.map((test, index) => (
                 <div
                   key={test.id}
-                  className={`
-                    flex items-center justify-between p-4 bg-white/5 backdrop-blur-lg rounded-xl
+                  className="flex items-center justify-between p-4 bg-white/5 backdrop-blur-lg rounded-xl
                     hover:bg-white/10 transition-all duration-300 transform hover:scale-[1.02]
-                    animate-fadeIn opacity-0
-                  `}
+                    animate-fade-in"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   <div className="flex items-center gap-4">
@@ -266,17 +253,6 @@ export default function SpeedTest() {
           </div>
         )}
       </div>
-
-      {/* Add global styles for animations */}
-      <style jsx global>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.5s ease-out forwards;
-        }
-      `}</style>
     </div>
   );
 }
