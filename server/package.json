@@ -1,0 +1,20 @@
+{
+  "name": "wifi-speed-test",
+  "version": "1.0.0",
+  "description": "WiFi speed test implementation",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.1",
+    "node-fetch": "^3.3.2",
+    "ws": "^8.18.0"
+  }
+}
